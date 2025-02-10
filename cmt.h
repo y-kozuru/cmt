@@ -21,7 +21,7 @@ inner_assertNotNULL(!actual, #actual, __func__, __LINE__)
 
 // string
 #define assertStringEquals(actual, expected) \
-inner_assertStringEquals(actual, expected, __func__, __LINE__)
+inner_assertStringEquals(actual, expected, #actual, #expected, __func__, __LINE__)
 
 // int
 #define assertIntEquals(actual, expected) assertEquals(actual, expected)
@@ -77,7 +77,7 @@ inline void inner_printAssertMessage(
 	const char *s2,
 	const char *s3)
 {
-	printf("Failed: %s L%d: expected \"%s %s %s\"\n", funcName, lineNo, s1, s2, s3);
+	printf("Failed: %s L%d: expected %s %s %s\n", funcName, lineNo, s1, s2, s3);
 }
 
 inline void inner_assertEquals(
@@ -126,12 +126,14 @@ inline void inner_assertNotNULL(
 }
 
 inline void inner_assertStringEquals(
+	const char *a,
+	const char *e,
 	const char *actual,
 	const char *expected,
 	const char *funcName,
 	int lineNo)
 {
-	const bool success = strcmp(actual, expected) == 0;
+	const bool success = strcmp(a, e) == 0;
 	inner_assertEquals(success, actual, expected, funcName, lineNo);
 }
 

@@ -34,8 +34,8 @@ int main(void) {
 When you run the above source code, the following output will be generated:
 
 ```
-Failed: testInt L318: expected "x == y"
-Failed: testString L324: expected "hello == hi"
+Failed: testInt L317: expected x == y
+Failed: testString L323: expected s1 == "hi"
 ```
 
 Please do not use functions that start with `inner_`.
