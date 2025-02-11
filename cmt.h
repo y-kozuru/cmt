@@ -72,7 +72,7 @@ inner_assertEquals(actual == expected, #actual, #expected, __func__, __LINE__)
 
 inline void inner_printAssertMessage(
 	const char *funcName,
-	int lineNo,
+	const int lineNo,
 	const char *s1,
 	const char *s2,
 	const char *s3)
@@ -85,7 +85,7 @@ inline void inner_assertEquals(
 	const char *actual,
 	const char *expected,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (!success) {
 		inner_printAssertMessage(funcName, lineNo, actual, "==", expected);
@@ -96,7 +96,7 @@ inline void inner_assertTrue(
 	const bool actual_as_bool,
 	const char *actual,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (!actual_as_bool) {
 		inner_printAssertMessage(funcName, lineNo, actual, "is true", "");
@@ -107,7 +107,7 @@ inline void inner_assertFalse(
 	const bool actual_as_bool,
 	const char *actual,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (actual_as_bool) {
 		inner_printAssertMessage(funcName, lineNo, actual, "is false", "");
@@ -118,7 +118,7 @@ inline void inner_assertNotNULL(
 	const bool success,
 	const char *actual,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (!success) {
 		inner_printAssertMessage(funcName, lineNo, actual, "not NULL", "");
@@ -131,7 +131,7 @@ inline void inner_assertStringEquals(
 	const char *actual,
 	const char *expected,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	const bool success = strcmp(a, e) == 0;
 	inner_assertEquals(success, actual, expected, funcName, lineNo);
@@ -143,7 +143,7 @@ inline void inner_assertIntGraterThan(
 	const char *actual,
 	const char *expected,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (!(a > e)) {
 		inner_printAssertMessage(funcName, lineNo, actual, "> ", expected);
@@ -156,7 +156,7 @@ inline void inner_assertIntGraterThanOrEquals(
 	const char *actual,
 	const char *expected,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (!(a >= e)) {
 		inner_printAssertMessage(funcName, lineNo, actual, ">=", expected);
@@ -169,7 +169,7 @@ inline void inner_assertIntLessThan(
 	const char *actual,
 	const char *expected,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (!(a < e)) {
 		inner_printAssertMessage(funcName, lineNo, actual, "< ", expected);
@@ -182,7 +182,7 @@ inline void inner_assertIntLessThanOrEquals(
 	const char *actual,
 	const char *expected,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (!(a <= e)) {
 		inner_printAssertMessage(funcName, lineNo, actual, "<=", expected);
@@ -196,7 +196,7 @@ inline void inner_assertUIntGraterThan(
 	const char *actual,
 	const char *expected,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (!(a > e)) {
 		inner_printAssertMessage(funcName, lineNo, actual, "> ", expected);
@@ -209,7 +209,7 @@ inline void inner_assertUIntGraterThanOrEquals(
 	const char *actual,
 	const char *expected,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (!(a >= e)) {
 		inner_printAssertMessage(funcName, lineNo, actual, ">=", expected);
@@ -222,7 +222,7 @@ inline void inner_assertUIntLessThan(
 	const char *actual,
 	const char *expected,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (!(a < e)) {
 		inner_printAssertMessage(funcName, lineNo, actual, "< ", expected);
@@ -235,7 +235,7 @@ inline void inner_assertUIntLessThanOrEquals(
 	const char *actual,
 	const char *expected,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (!(a <= e)) {
 		inner_printAssertMessage(funcName, lineNo, actual, "<=", expected);
@@ -249,7 +249,7 @@ inline void inner_assertDoubleEquals(
 	const char *expected,
 	const char *actual,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	const bool success = fabs(e - a) <= DBL_EPSILON * fmax(1, fmax(fabs(e), fabs(a)));
 	inner_assertEquals(success, actual, expected, funcName, lineNo);
@@ -261,7 +261,7 @@ inline void inner_assertDoubleGraterThan(
 	const char *actual,
 	const char *expected,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (!isgreater(a, e)) {
 		inner_printAssertMessage(funcName, lineNo, actual, "> ", expected);
@@ -274,7 +274,7 @@ inline void inner_assertDoubleGraterThanOrEquals(
 	const char *actual,
 	const char *expected,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (!isgreaterequal(a, e)) {
 		inner_printAssertMessage(funcName, lineNo, actual, ">=", expected);
@@ -287,7 +287,7 @@ inline void inner_assertDoubleLessThan(
 	const char *actual,
 	const char *expected,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (!isless(a, e)) {
 		inner_printAssertMessage(funcName, lineNo, actual, "< ", expected);
@@ -300,7 +300,7 @@ inline void inner_assertDoubleLessThanOrEquals(
 	const char *actual,
 	const char *expected,
 	const char *funcName,
-	int lineNo)
+	const int lineNo)
 {
 	if (!islessequal(a, e)) {
 		inner_printAssertMessage(funcName, lineNo, actual, "<=", expected);
