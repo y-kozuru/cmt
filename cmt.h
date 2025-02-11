@@ -17,7 +17,7 @@ inner_assertTrue(actual, #actual, __func__, __LINE__)
 inner_assertFalse(actual, #actual, __func__, __LINE__)
 
 #define assertNotNULL(actual) \
-inner_assertNotNULL(!actual, #actual, __func__, __LINE__)
+inner_assertNotNULL(actual, #actual, __func__, __LINE__)
 
 // string
 #define assertStringEquals(actual, expected) \
