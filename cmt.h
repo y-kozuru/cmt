@@ -93,23 +93,23 @@ inline void inner_assertEquals(
 }
 
 inline void inner_assertTrue(
-	const bool success,
+	const bool actual_as_bool,
 	const char *actual,
 	const char *funcName,
 	int lineNo)
 {
-	if (!success) {
+	if (!actual_as_bool) {
 		inner_printAssertMessage(funcName, lineNo, actual, "is true", "");
 	}
 }
 
 inline void inner_assertFalse(
-	const bool success,
+	const bool actual_as_bool,
 	const char *actual,
 	const char *funcName,
 	int lineNo)
 {
-	if (success) {
+	if (actual_as_bool) {
 		inner_printAssertMessage(funcName, lineNo, actual, "is false", "");
 	}
 }
