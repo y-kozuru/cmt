@@ -9,23 +9,22 @@ You can perform checks of various values using macros that start with `assert`. 
 ```c
 #include "cmt.h"
 
-void testInt(void) {
+void test_int(void) {
 	int x = 3;
 	int y = 6;
-	assertIntEquals(x, 3);
-	assertIntEquals(x, y);
+	assert_int_eq(3, x);
+	assert_int_eq(y, x);
 }
 
-void testString(void) {
-	const char *s1 = "hello";
-	const char *s2 = "hello";
-	assertStringEquals(s1, "hi");
-	assertStringEquals(s1, s2);
+void test_str(void) {
+	const char *s = "hello";
+	assert_string_eq("hello", s);
+	assert_string_eq("hi", s);
 }
 
 int main(void) {
-	testInt();
-	testString();
+	test_int();
+	test_str();
 	return 0;
 }
 
@@ -34,8 +33,8 @@ int main(void) {
 When you run the above source code, the following output will be generated:
 
 ```
-Failed: testInt L317: expected x == y
-Failed: testString L323: expected s1 == "hi"
+Failed: test_int L317: expected x == y
+Failed: test_str L323: expected s1 == "hi"
 ```
 
 Please do not use functions that start with `inner_`.
