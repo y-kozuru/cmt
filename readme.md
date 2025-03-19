@@ -31,11 +31,11 @@ int main(void) {
 When you run the above source code, the following output will be generated:
 
 ```
-[FAIL] test_int Line=47
+[FAIL] test_int Line=7
        expression: y <  x
        expected  : 6
        actual    : 3
-[FAIL] test_str Line=53
+[FAIL] test_str Line=13
        expression: "hi" == s
        expected  : hi
        actual    : hello
