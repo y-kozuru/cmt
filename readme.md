@@ -1,9 +1,7 @@
 # cmt - C language Minimum Test library
 A small unit test library for C language.
 
-It is a header-only library. There is no need to define the `*_IMPLEMENTATION` macro.
-
-You can perform checks of various values using macros that start with `assert`. When the test succeeds, display nothing. When it fails, display function name, the line number, and the expected expression.
+You can perform checks of various values using macros that start with `cmt_assert`. When the test succeeds, display nothing. When it fails, display function name, the line number, and the expected expression.
 
 # Example
 ```c
