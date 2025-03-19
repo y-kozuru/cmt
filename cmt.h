@@ -17,8 +17,8 @@ inner_assert_true(a, #a, __func__, __LINE__)
 inner_assert_false(a, #a, __func__, __LINE__)
 
 // string
-#define cmt_assert_string_eq(e, a) \
-inner_assert_string_eq(e, a, #e, #a, __func__, __LINE__)
+#define cmt_assert_str_eq(e, a) \
+inner_assert_str_eq(e, a, #e, #a, __func__, __LINE__)
 
 // int
 #define cmt_assert_int_eq(e, a) \
@@ -78,7 +78,7 @@ void inner_assert_eq(
 	const char* func, int line);
 void inner_assert_true(bool a, const char* a_str, const char* func, int line);
 void inner_assert_false(bool a, const char* a_str, const char* func, int line);
-void inner_assert_string_eq(
+void inner_assert_str_eq(
 	const char* e, const char* a,
 	const char* e_str, const char* a_str,
 	const char* func, int line);

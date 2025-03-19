@@ -18,8 +18,8 @@ void test_int(void) {
 
 void test_str(void) {
 	const char *s = "hello";
-	assert_string_eq("hello", s);
-	assert_string_eq("hi", s);
+	assert_str_eq("hello", s);
+	assert_str_eq("hi", s);
 }
 
 int main(void) {
@@ -33,8 +33,14 @@ int main(void) {
 When you run the above source code, the following output will be generated:
 
 ```
-Failed: test_int L317: expected x == y
-Failed: test_str L323: expected s1 == "hi"
+[FAIL] test_int Line=47
+       expression: y <  x
+       expected  : 6
+       actual    : 3
+[FAIL] test_str Line=53
+       expression: "hi" == s
+       expected  : hi
+       actual    : hello
 ```
 
 Please do not use functions that start with `inner_`.

@@ -12,8 +12,8 @@ void test_assert_false(void) {
 
 void test_assert_string_eq(void) {
 	const char str[] = "abc";
-	cmt_assert_string_eq("abc", str);
-	cmt_assert_string_eq("def", str); // fail
+	cmt_assert_str_eq("abc", str);
+	cmt_assert_str_eq("def", str); // fail
 }
 
 void test_assert_int(void) {

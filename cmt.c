@@ -45,7 +45,7 @@ void inner_assert_false(
 	}
 }
 
-void inner_assert_string_eq(
+void inner_assert_str_eq(
 	const char* e, const char* a,
 	const char* e_str, const char* a_str,
 	const char* func, const int line)
